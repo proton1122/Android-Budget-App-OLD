@@ -18,5 +18,14 @@
         android:id="@+id/mainOverviewFragment"
         android:name="no.hiof.trondkw.MainOverviewFragment"
         android:label="fragment_main_overview"
-        tools:layout="@layout/fragment_main_overview" />
+        tools:layout="@layout/fragment_main_overview" >
+        <action
+            android:id="@+id/action_mainOverviewFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="no.hiof.trondkw.AddExpenseFragment"
+        android:label="fragment_add_expense"
+        tools:layout="@layout/fragment_add_expense" />
 </navigation>

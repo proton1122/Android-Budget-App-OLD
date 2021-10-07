@@ -2,11 +2,15 @@ package no.hiof.trondkw;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class MainOverviewFragment extends Fragment {
 
@@ -25,4 +29,14 @@ public class MainOverviewFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_main_overview, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button goToSecondFragmentButton = view.findViewById(R.id.MainOverviewFragment_AddExpenseButton);
+        goToSecondFragmentButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_addExpenseFragment));
+
+    }
+
 }
