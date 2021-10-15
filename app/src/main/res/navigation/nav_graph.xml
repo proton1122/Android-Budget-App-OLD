@@ -22,10 +22,17 @@
         <action
             android:id="@+id/action_mainOverviewFragment_to_addExpenseFragment"
             app:destination="@id/addExpenseFragment" />
+        <action
+            android:id="@+id/action_mainOverviewFragment_to_monthlyDetailsFragment"
+            app:destination="@id/monthlyDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
         android:name="no.hiof.trondkw.fragments.AddExpenseFragment"
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" />
+    <fragment
+        android:id="@+id/monthlyDetailsFragment"
+        android:name="no.hiof.trondkw.fragments.MonthlyDetailsFragment"
+        android:label="MonthlyDetailsFragment" />
 </navigation>

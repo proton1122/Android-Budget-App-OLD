@@ -38,6 +38,12 @@ public class MainOverviewFragment extends Fragment {
 
         Button goToSecondFragmentButton = view.findViewById(R.id.MainOverviewFragment_AddExpenseButton);
         goToSecondFragmentButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_addExpenseFragment));
+
+
+        Button goToMonthlyDetailsFragment = view.findViewById(R.id.MainOverviewFragment_DetailsButton);
+        goToMonthlyDetailsFragment.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_monthlyDetailsFragment));
+
+
     }
 
 }

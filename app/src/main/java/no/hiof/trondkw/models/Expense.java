@@ -1,5 +1,8 @@
 package no.hiof.trondkw.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Expense {
     // -------------------------------------------------------------------
     // class description
@@ -22,6 +25,11 @@ public class Expense {
     // constructors
     public Expense() {
     }
+
+    public Expense(String title, int sum) {
+        this.expenseTitle = title;
+        this.sum = sum;
+    }
     // -------------------------------------------------------------------
 
 
@@ -30,6 +38,34 @@ public class Expense {
     // Date, what's the best format?
     // getters / setters
 
+
+    public String getExpenseTitle() {
+        return expenseTitle;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+
+
+    public static List<Expense> getData() {
+
+        ArrayList<Expense> list = new ArrayList<>();
+
+
+        for (int i = 0; i < 50; i++) {
+
+            String title = "Expense " + i;
+            int sum = 1000 + i;
+
+            list.add(new Expense(title, sum));
+
+        }
+
+
+        return list;
+    }
 
 
 }
