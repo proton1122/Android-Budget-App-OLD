@@ -46,13 +46,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="400dp" />
+        app:layout_constraintGuide_begin="350dp" />
 
     <TextView
         android:id="@+id/MainOverviewFragment_BudgetInputTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/placeholder"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetTitleTextView"
@@ -73,7 +72,6 @@
         android:id="@+id/MainOverviewFragment_ExpensesInputTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/placeholder"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
@@ -94,7 +92,6 @@
         android:id="@+id/MainOverviewFragment_RemainingInputTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/placeholder"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_RemainingTitleTextView"
