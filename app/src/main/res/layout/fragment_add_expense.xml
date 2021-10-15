@@ -73,12 +73,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_FragmentTitleTextView" />
 
-    <EditText
+    <TextView
         android:id="@+id/AddExpenseFragment_SelectDateView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/temp_datepicker_background"
         android:ems="10"
-        android:inputType="date"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectDateTitleTextView" />
