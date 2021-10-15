@@ -1,4 +1,4 @@
-package no.hiof.trondkw;
+package no.hiof.trondkw.fragments;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.Calendar;
+
+import no.hiof.trondkw.R;
 
 
 public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnDateSetListener {

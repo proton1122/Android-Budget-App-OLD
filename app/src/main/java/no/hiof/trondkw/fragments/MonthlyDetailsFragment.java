@@ -1,4 +1,4 @@
-package no.hiof.trondkw;
+package no.hiof.trondkw.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import no.hiof.trondkw.R;
 
 class MonthlyDetailsFragment extends Fragment {
 

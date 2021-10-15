@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="no.hiof.trondkw.LoginFragment"
+        android:name="no.hiof.trondkw.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainOverviewFragment"
-        android:name="no.hiof.trondkw.MainOverviewFragment"
+        android:name="no.hiof.trondkw.fragments.MainOverviewFragment"
         android:label="fragment_main_overview"
         tools:layout="@layout/fragment_main_overview" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="no.hiof.trondkw.AddExpenseFragment"
+        android:name="no.hiof.trondkw.fragments.AddExpenseFragment"
         android:label="fragment_add_expense"
         tools:layout="@layout/fragment_add_expense" />
 </navigation>

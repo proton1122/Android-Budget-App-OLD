@@ -1,4 +1,4 @@
-package no.hiof.trondkw;
+package no.hiof.trondkw.fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import no.hiof.trondkw.R;
 
 
 public class LoginFragment extends Fragment {
