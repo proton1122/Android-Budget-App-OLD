@@ -36,14 +36,33 @@ public class MainOverviewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button goToSecondFragmentButton = view.findViewById(R.id.MainOverviewFragment_AddExpenseButton);
-        goToSecondFragmentButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_addExpenseFragment));
 
+
+        // load data
+
+
+
+
+
+
+
+        // navigation
+        Button goToAddExpenseFragment = view.findViewById(R.id.MainOverviewFragment_AddExpenseButton);
+        goToAddExpenseFragment.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_addExpenseFragment));
 
         Button goToMonthlyDetailsFragment = view.findViewById(R.id.MainOverviewFragment_DetailsButton);
         goToMonthlyDetailsFragment.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainOverviewFragment_to_monthlyDetailsFragment));
-
-
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }
