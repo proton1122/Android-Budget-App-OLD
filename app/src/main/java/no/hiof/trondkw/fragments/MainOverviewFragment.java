@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,8 @@ public class MainOverviewFragment extends Fragment {
         loadData();
 
 
-
+        // show data
+        showData(view);
 
 
 
@@ -67,9 +69,6 @@ public class MainOverviewFragment extends Fragment {
 
 
 
-
-
-
     private void loadData() {
         // firebase?
 
@@ -80,11 +79,42 @@ public class MainOverviewFragment extends Fragment {
         ArrayList<Expense> expenses = new ArrayList<>(Expense.getData());
 
         currentMonth = new Month(budget, expenses);
+    }
+
+
+    private void showData(View view) {
+        // graph...
+
+
+        // budget
+        TextView monthlyBudgetTextView = view.findViewById(R.id.MainOverviewFragment_BudgetInputTextView);
+        monthlyBudgetTextView.setText(String.valueOf(currentMonth.getBudget()));
+
+        // expenses
+        TextView monthlyExpensesTextView = view.findViewById(R.id.MainOverviewFragment_ExpensesInputTextView);
+
+        ArrayList<Expense> expenses = currentMonth.getMonthlyExpenses();
+
+        double totalExpenses = 0;
+
+        for (Expense expense: expenses) {
+            totalExpenses += expense.getSum();
+        }
+
+        monthlyExpensesTextView.setText(String.valueOf(totalExpenses));
+
+
+        // remaining
+        TextView monthlyRemainingTextView = view.findViewById(R.id.MainOverviewFragment_RemainingInputTextView);
+
+        double remaining = currentMonth.getBudget() - totalExpenses;
+
+        monthlyRemainingTextView.setText(String.valueOf(remaining));
+
 
     }
 
 
 
 
-
-}
+} // end MainOverviewFragment class
