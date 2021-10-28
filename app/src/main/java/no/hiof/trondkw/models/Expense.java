@@ -17,6 +17,7 @@ public class Expense {
     private String expenseTitle;
     private String expenseDescription;
     //private ExpenseCategory category;
+    private String expenseCategory;
     //private Date date;
     private int sum;
 
@@ -53,19 +54,45 @@ public class Expense {
 
         ArrayList<Expense> list = new ArrayList<>();
 
-
         for (int i = 0; i < 50; i++) {
 
             String title = "Expense " + i;
             int sum = 1000 + i;
 
             list.add(new Expense(title, sum));
-
         }
-
-
         return list;
     }
 
+    // -------------------------------------------------------------------
+    // getters / setters
+
+    public int getExpenseId() {
+        return expenseId;
+    }
+
+    public void setExpenseTitle(String expenseTitle) {
+        this.expenseTitle = expenseTitle;
+    }
+    public String getExpenseDescription() {
+        return expenseDescription;
+    }
+
+    public void setExpenseDescription(String expenseDescription) {
+        this.expenseDescription = expenseDescription;
+    }
+    public String getExpenseCategory() {
+        return expenseCategory;
+    }
+
+    public void setExpenseCategory(String expenseCategory) {
+        this.expenseCategory = expenseCategory;
+    }
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+
+    // -------------------------------------------------------------------
 
 }
