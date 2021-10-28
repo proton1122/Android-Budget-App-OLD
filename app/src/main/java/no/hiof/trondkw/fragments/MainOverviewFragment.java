@@ -12,10 +12,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import no.hiof.trondkw.R;
+import no.hiof.trondkw.models.Expense;
+import no.hiof.trondkw.models.Month;
 
 public class MainOverviewFragment extends Fragment {
 
+    // fields
+
+    private Month currentMonth;
+
+
+    // constructor
     public MainOverviewFragment() {
         // Required empty public constructor
     }
@@ -39,7 +50,7 @@ public class MainOverviewFragment extends Fragment {
 
 
         // load data
-
+        loadData();
 
 
 
@@ -59,7 +70,18 @@ public class MainOverviewFragment extends Fragment {
 
 
 
+    private void loadData() {
+        // firebase?
 
+        // temp get dummy data
+
+        double budget = 10000;
+
+        ArrayList<Expense> expenses = new ArrayList<>(Expense.getData());
+
+        currentMonth = new Month(budget, expenses);
+
+    }
 
 
 

@@ -29,6 +29,13 @@ public class Month {
         this.expenses = 0;
         this.remaining = 0;
     }
+
+    // temp constructor for dummy data
+    public Month(double budget, ArrayList<Expense> expenses) {
+        this.budget = budget;
+        this.monthlyExpenses = expenses;
+    }
+
     // -------------------------------------------------------------------
 
     // TODO
@@ -75,5 +82,5 @@ public class Month {
 
 
 
-    
+
 }

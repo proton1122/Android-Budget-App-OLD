@@ -52,7 +52,7 @@ public class Expense {
 
     public static List<Expense> getData() {
 
-        ArrayList<Expense> list = new ArrayList<>();
+        List<Expense> list = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
 
