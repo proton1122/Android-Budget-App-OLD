@@ -44,16 +44,23 @@ public class Month {
 
 
     public static Month getTestMonth() {
-        ArrayList<Expense> list = new ArrayList<>();
         double budget = 10000;
 
+        ArrayList<Expense> list = new ArrayList<>(getTestExpenseList());
+
+        return new Month(budget, list);
+    }
+
+
+    public static List<Expense> getTestExpenseList() {
+        List<Expense> list = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             String title = "Expense " + i;
             int sum = 1000 + i;
 
             list.add(new Expense(title, sum));
         }
-        return new Month(budget, list);
+        return list;
     }
 
 
