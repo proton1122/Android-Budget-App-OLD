@@ -49,21 +49,6 @@ public class Expense {
     }
 
 
-
-    public static List<Expense> getData() {
-
-        List<Expense> list = new ArrayList<>();
-
-        for (int i = 0; i < 50; i++) {
-
-            String title = "Expense " + i;
-            int sum = 1000 + i;
-
-            list.add(new Expense(title, sum));
-        }
-        return list;
-    }
-
     // -------------------------------------------------------------------
     // getters / setters
 

@@ -24,7 +24,7 @@ public class MonthViewModel extends ViewModel {
 
 
     public MonthViewModel() {
-
+        currentMonth = new MutableLiveData<Month>(Month.getTestMonth());
     }
 
 

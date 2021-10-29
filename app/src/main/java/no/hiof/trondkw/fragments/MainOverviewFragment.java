@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import no.hiof.trondkw.R;
+import no.hiof.trondkw.databinding.FragmentMainOverviewBinding;
 import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
 
@@ -26,10 +28,14 @@ public class MainOverviewFragment extends Fragment {
 
     private Month currentMonth;
 
+    private FragmentMainOverviewBinding binding;
+
+
 
     // constructor
     public MainOverviewFragment() {
         // Required empty public constructor
+        loadData();
     }
 
 
@@ -39,9 +45,12 @@ public class MainOverviewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_main_overview, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_overview, container, false);
+        binding.setCurrentMonth(currentMonth);
+
+        return binding.getRoot();
     }
 
     @Override
@@ -51,7 +60,7 @@ public class MainOverviewFragment extends Fragment {
 
 
         // load data
-        loadData();
+        //loadData();
 
 
         // show data
@@ -73,12 +82,7 @@ public class MainOverviewFragment extends Fragment {
         // firebase?
 
         // temp get dummy data
-
-        double budget = 10000;
-
-        ArrayList<Expense> expenses = new ArrayList<>(Expense.getData());
-
-        currentMonth = new Month(budget, expenses);
+        currentMonth = Month.getTestMonth();
     }
 
 

@@ -1,6 +1,7 @@
 package no.hiof.trondkw.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Month {
     // -------------------------------------------------------------------
@@ -40,6 +41,21 @@ public class Month {
 
     // TODO
     //
+
+
+    public static Month getTestMonth() {
+        ArrayList<Expense> list = new ArrayList<>();
+        double budget = 10000;
+
+        for (int i = 0; i < 50; i++) {
+            String title = "Expense " + i;
+            int sum = 1000 + i;
+
+            list.add(new Expense(title, sum));
+        }
+        return new Month(budget, list);
+    }
+
 
 
 
