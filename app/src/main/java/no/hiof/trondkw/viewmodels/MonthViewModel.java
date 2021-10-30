@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.List;
-
-import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
+import no.hiof.trondkw.repositories.MonthRepository;
 
 public class MonthViewModel extends ViewModel {
 
@@ -19,12 +17,12 @@ public class MonthViewModel extends ViewModel {
     public MonthViewModel() {
 
         // change to get from Repository
-        mCurrentMonth.setValue(Month.getTestMonth());
+        mCurrentMonth.setValue(MonthRepository.getTestMonth());
     }
 
 
     // getters / setters
-    public MutableLiveData<Month> getCurrentMonth() {
+    public LiveData<Month> getCurrentMonth() {
         return mCurrentMonth;
     }
 

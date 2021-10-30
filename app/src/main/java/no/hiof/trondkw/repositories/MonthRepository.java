@@ -4,20 +4,43 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
 
 
 public class MonthRepository {
 
 
-    // FireBase stuff... to be implemented
+
+    public MonthRepository() {
+
+    }
 
 
-    public LiveData<List<Month>> getAllMonths() {
 
-        return null;
+
+
+    // Generate dummy data
+    public static Month getTestMonth() {
+        double budget = 10000;
+
+        ArrayList<Expense> list = new ArrayList<>(getTestExpenseList());
+
+        return new Month(budget, list);
+    }
+
+    public static List<Expense> getTestExpenseList() {
+        List<Expense> list = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            String title = "Expense " + i;
+            int sum = 1000 + i;
+
+            list.add(new Expense(title, sum));
+        }
+        return list;
     }
 
 
@@ -29,11 +52,11 @@ public class MonthRepository {
 
 
 
+    // FireBase stuff... to be implemented
 
-
-
-
-
+    public LiveData<List<Month>> getAllMonths() {
+        return null;
+    }
 
 
     // SQLite stuff..... not implementing for now

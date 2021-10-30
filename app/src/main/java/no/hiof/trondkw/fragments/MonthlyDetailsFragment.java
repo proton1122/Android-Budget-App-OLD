@@ -15,6 +15,7 @@ import no.hiof.trondkw.R;
 import no.hiof.trondkw.adapter.ExpenseRecyclerAdapter;
 import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
+import no.hiof.trondkw.repositories.MonthRepository;
 
 public class MonthlyDetailsFragment extends Fragment {
 
@@ -45,7 +46,7 @@ public class MonthlyDetailsFragment extends Fragment {
 
         RecyclerView expenseRecyclerView = view.findViewById(R.id.MonthlyDetailsFragment_RecyclerView);
 
-        expenseRecyclerView.setAdapter(new ExpenseRecyclerAdapter(getContext(), Month.getTestExpenseList()));
+        expenseRecyclerView.setAdapter(new ExpenseRecyclerAdapter(getContext(), MonthRepository.getTestExpenseList()));
 
         expenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

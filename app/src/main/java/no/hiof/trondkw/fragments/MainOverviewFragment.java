@@ -23,6 +23,7 @@ import no.hiof.trondkw.R;
 import no.hiof.trondkw.databinding.FragmentMainOverviewBinding;
 import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
+import no.hiof.trondkw.repositories.MonthRepository;
 import no.hiof.trondkw.viewmodels.MonthViewModel;
 
 public class MainOverviewFragment extends Fragment {
@@ -102,7 +103,7 @@ public class MainOverviewFragment extends Fragment {
         // firebase?
 
         // temp get dummy data
-        currentMonth = Month.getTestMonth();
+        currentMonth = MonthRepository.getTestMonth();
     }
 
 
