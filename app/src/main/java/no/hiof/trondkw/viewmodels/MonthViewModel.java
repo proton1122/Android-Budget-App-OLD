@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import no.hiof.trondkw.models.Expense;
@@ -19,17 +20,24 @@ public class MonthViewModel extends ViewModel {
 
     //private MonthRepository repository;
 
-    private MutableLiveData<Month> currentMonth;
+
+    private MutableLiveData<Month> monthMutableLiveData = new MutableLiveData<>();
+
+    private MutableLiveData<Month> mCurrentMonth = new MutableLiveData<>();
     private MutableLiveData<List<Expense>> expenses;
 
-
+    // constructor
     public MonthViewModel() {
-        currentMonth = new MutableLiveData<Month>(Month.getTestMonth());
+        //currentMonth = new MutableLiveData<>(Month.getTestMonth());
+
+        mCurrentMonth.setValue(Month.getTestMonth());
     }
 
 
-
-
+    // getters / setters
+    public MutableLiveData<Month> getCurrentMonth() {
+        return monthMutableLiveData;
+    }
 
 
     // TEST
@@ -39,6 +47,7 @@ public class MonthViewModel extends ViewModel {
     //private LiveData<List<Month>> allMonths;
 
     // Application context is needed for database, so this might be unnecessary
+    /*
     public MonthViewModel(@NonNull Application application) {
 
 
@@ -46,6 +55,7 @@ public class MonthViewModel extends ViewModel {
         //allMonths = repository.getAllMonths(); // RETURNS NULL!
 
     }
+     */
 
     // database methods
 

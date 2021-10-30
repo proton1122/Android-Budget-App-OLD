@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import no.hiof.trondkw.R;
 import no.hiof.trondkw.databinding.FragmentMainOverviewBinding;
 import no.hiof.trondkw.models.Expense;
 import no.hiof.trondkw.models.Month;
+import no.hiof.trondkw.viewmodels.MonthViewModel;
 
 public class MainOverviewFragment extends Fragment {
 
@@ -29,6 +32,7 @@ public class MainOverviewFragment extends Fragment {
     private Month currentMonth;
 
     private FragmentMainOverviewBinding binding;
+    private MonthViewModel monthViewModel;
 
 
 
@@ -46,9 +50,25 @@ public class MainOverviewFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_overview, container, false);
-        binding.setCurrentMonth(currentMonth);
+
+        // get the view model
+        monthViewModel = new ViewModelProvider(this).get(MonthViewModel.class);
+
+        // bind data (to be changed)
+        binding.setMonthViewModel(monthViewModel);
+        //binding.setCurrentMonth(currentMonth);
+
+
+        binding.getMonthViewModel().getCurrentMonth().observe(getViewLifecycleOwner(), month -> {
+
+        });
+
+
+
+        // bind data with ViewModel
+        // not working, returns MutableLiveData (is this correct though?)
+        //binding.setCurrentMonth(monthViewModel.getCurrentMonth());
 
         return binding.getRoot();
     }

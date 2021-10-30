@@ -6,17 +6,8 @@
 
     <data>
         <variable
-            name="currentMonth"
-            type="no.hiof.trondkw.models.Month" />
-        <variable
-            name="budget"
-            type="double" />
-        <variable
-            name="expenses"
-            type="double" />
-        <variable
-            name="remaining"
-            type="double" />
+            name="monthViewModel"
+            type="no.hiof.trondkw.viewmodels.MonthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,7 +60,7 @@
             android:id="@+id/MainOverviewFragment_BudgetInputTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Double.toString(currentMonth.budget)}"
+            android:text="@{Double.toString(monthViewModel.currentMonth.budget)}"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetTitleTextView"
             app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_BudgetTitleTextView"
@@ -89,7 +80,7 @@
             android:id="@+id/MainOverviewFragment_ExpensesInputTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Double.toString(currentMonth.expenses)}"
+            android:text="@{Double.toString(monthViewModel.currentMonth.expenses)}"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
             app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
@@ -109,7 +100,7 @@
             android:id="@+id/MainOverviewFragment_RemainingInputTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Double.toString(currentMonth.remaining)}"
+            android:text="@{Double.toString(monthViewModel.currentMonth.remaining)}"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_RemainingTitleTextView"
             app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_RemainingTitleTextView"
