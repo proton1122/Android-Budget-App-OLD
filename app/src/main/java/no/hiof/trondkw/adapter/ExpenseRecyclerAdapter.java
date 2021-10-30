@@ -44,8 +44,6 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         Expense expenseToDisplay = expenseList.get(position);
 
         holder.setExpense(expenseToDisplay);
-
-
     }
 
     @Override
@@ -54,20 +52,17 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
     }
 
 
-
-
-
+    // ------------------------------------------------------------------------------------
     public class ExpenseViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView expenseTitleTextView;
-        private TextView expenseSumTextView;
+        private final TextView expenseTitleTextView;
+        private final TextView expenseSumTextView;
 
         public ExpenseViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            expenseTitleTextView = itemView.findViewById(R.id.ExpenseListItem_ExpenseTitleTextView);
-            expenseSumTextView = itemView.findViewById(R.id.ExpenseListItem_ExpenseSumTextView);
-
+            expenseTitleTextView = itemView.findViewById(R.id.ExpenseCardView_Title);
+            expenseSumTextView = itemView.findViewById(R.id.ExpenseCardView_Sum);
         }
 
         public void setExpense(Expense expenseToDisplay) {
@@ -76,12 +71,6 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
             String sum = expenseToDisplay.getSum() + ",-";
             expenseSumTextView.setText(sum);
         }
+    } // end ExpenseViewHolder class
 
-
-    }
-
-
-
-
-
-}
+} // end ExpenseRecyclerAdapter
