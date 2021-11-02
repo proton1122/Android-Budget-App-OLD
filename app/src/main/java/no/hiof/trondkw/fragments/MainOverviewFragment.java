@@ -47,18 +47,29 @@ public class MainOverviewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // get the view model
+        monthViewModel = new ViewModelProvider(this).get(MonthViewModel.class);
+
+        // observe the viewModel
+        monthViewModel.getCurrentMonth().observe(this, month -> {
+
+            // update UI
+        });
+
+
+
+
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_overview, container, false);
 
-        // get the view model
-        monthViewModel = new ViewModelProvider(this).get(MonthViewModel.class);
-
         // bind data (to be changed)
         binding.setMonthViewModel(monthViewModel);
         //binding.setCurrentMonth(currentMonth);
+
 
 
         binding.getMonthViewModel().getCurrentMonth().observe(getViewLifecycleOwner(), month -> {

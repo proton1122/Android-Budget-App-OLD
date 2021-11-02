@@ -46,6 +46,8 @@ public class MonthlyDetailsFragment extends Fragment {
 
         RecyclerView expenseRecyclerView = view.findViewById(R.id.MonthlyDetailsFragment_RecyclerView);
 
+
+        // MonthRepository.getTestExpenseList() needs to be replaced with ViewModel / LiveData!
         expenseRecyclerView.setAdapter(new ExpenseRecyclerAdapter(getContext(), MonthRepository.getTestExpenseList()));
 
         expenseRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

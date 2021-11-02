@@ -10,24 +10,41 @@ import no.hiof.trondkw.repositories.MonthRepository;
 public class MonthViewModel extends ViewModel {
 
 
-    private MutableLiveData<Month> mCurrentMonth = new MutableLiveData<>();
+    private MutableLiveData<Month> currentMonth;
 
 
-    // constructor
+    public LiveData<Month> getCurrentMonth() {
+
+        if(currentMonth == null) {
+            currentMonth = new MutableLiveData<>();
+            loadMonth();
+        }
+
+        return currentMonth;
+    }
+
+
+    private void loadMonth() {
+        // Do an asynchronous operation to fetch users.
+
+        currentMonth.setValue(MonthRepository.getTestMonth());
+    }
+
+
+
+
+
+
+
+
+
+    /*
+    // constructor not needed?
     public MonthViewModel() {
-
         // change to get from Repository
         mCurrentMonth.setValue(MonthRepository.getTestMonth());
     }
-
-
-    // getters / setters
-    public LiveData<Month> getCurrentMonth() {
-        return mCurrentMonth;
-    }
-
-
-
+     */
 
 
     // -----------------------------------------------------------------------------------------
