@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<layout xmlns:tools="http://schemas.android.com/tools"
+<!-- Data Binding layout -->
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -11,152 +12,174 @@
             type="no.hiof.trondkw.viewmodels.MonthViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <!-- Layout for AppBar and FABs -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".fragments.MainOverviewFragment">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/MainOverviewFragment_GraphPlaceholder"
-            android:layout_width="148dp"
-            android:layout_height="128dp"
-            android:contentDescription="@string/placeholder"
-            android:padding="10dp"
-            android:src="@android:drawable/sym_def_app_icon"
-            app:layout_constraintBottom_toTopOf="@+id/guideline3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <!-- AppBar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/MainOverviewFragment_DetailsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/details"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_GraphPlaceholder"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_GraphPlaceholder" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_BudgetTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/budget"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="350dp" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_BudgetInputTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{Double.toString(monthViewModel.currentMonth.budget)}"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetTitleTextView"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_BudgetTitleTextView"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_BudgetTitleTextView" />
+        <!-- Main content layout -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.MainOverviewFragment">
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_ExpensesTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/expenses"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetInputTextView"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_BudgetInputTextView"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_BudgetInputTextView" />
+            <ImageView
+                android:id="@+id/MainOverviewFragment_GraphPlaceholder"
+                android:layout_width="148dp"
+                android:layout_height="128dp"
+                android:contentDescription="@string/placeholder"
+                android:padding="10dp"
+                android:src="@android:drawable/sym_def_app_icon"
+                app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_ExpensesInputTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{Double.toString(monthViewModel.currentMonth.expenses)}"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_ExpensesTitleTextView" />
+            <Button
+                android:id="@+id/MainOverviewFragment_DetailsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/details"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_GraphPlaceholder"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_GraphPlaceholder" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_RemainingTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/remaining"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesInputTextView"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_ExpensesInputTextView"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_ExpensesInputTextView" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_BudgetTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/budget"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_RemainingInputTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{Double.toString(monthViewModel.currentMonth.remaining)}"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_RemainingTitleTextView"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_RemainingTitleTextView"
-            app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_RemainingTitleTextView" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="350dp" />
 
-        <Button
-            android:id="@+id/MainOverviewFragment_EditBudgetButton"
-            android:layout_width="58dp"
-            android:layout_height="33dp"
-            android:text="@string/edit"
-            android:textSize="8sp"
-            app:layout_constraintBottom_toBottomOf="@+id/MainOverviewFragment_BudgetInputTextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/MainOverviewFragment_BudgetInputTextView"
-            app:layout_constraintTop_toTopOf="@+id/MainOverviewFragment_BudgetInputTextView" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_BudgetInputTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Double.toString(monthViewModel.currentMonth.budget)}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetTitleTextView"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_BudgetTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_BudgetTitleTextView" />
 
-        <TextView
-            android:id="@+id/MainOverviewFragment_CurrentMonthTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="@string/current_month_placeholder"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/MainOverviewFragment_GraphPlaceholder"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder"
-            app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_GraphPlaceholder" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_ExpensesTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/expenses"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_BudgetInputTextView"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_BudgetInputTextView"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_BudgetInputTextView" />
 
-        <ImageView
-            android:id="@+id/MainOverviewFragment_SettingsPlaceholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:src="@android:drawable/ic_menu_preferences"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_ExpensesInputTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Double.toString(monthViewModel.currentMonth.expenses)}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_ExpensesTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_ExpensesTitleTextView" />
 
-        <ImageView
-            android:id="@+id/MainOverviewFragment_GraphZoomImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_zoom"
-            app:layout_constraintBottom_toBottomOf="@+id/MainOverviewFragment_GraphPlaceholder"
-            app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_RemainingTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/remaining"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_ExpensesInputTextView"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_ExpensesInputTextView"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_ExpensesInputTextView" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/MainOverviewFragment_FloatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/add_expense_button"
-            app:srcCompat="@drawable/outline_add_black_24" />
+            <TextView
+                android:id="@+id/MainOverviewFragment_RemainingInputTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Double.toString(monthViewModel.currentMonth.remaining)}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_RemainingTitleTextView"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_RemainingTitleTextView"
+                app:layout_constraintTop_toBottomOf="@+id/MainOverviewFragment_RemainingTitleTextView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/MainOverviewFragment_EditBudgetButton"
+                android:layout_width="58dp"
+                android:layout_height="33dp"
+                android:text="@string/edit"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="@+id/MainOverviewFragment_BudgetInputTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/MainOverviewFragment_BudgetInputTextView"
+                app:layout_constraintTop_toTopOf="@+id/MainOverviewFragment_BudgetInputTextView" />
+
+            <TextView
+                android:id="@+id/MainOverviewFragment_CurrentMonthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@string/current_month_placeholder"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/MainOverviewFragment_GraphPlaceholder"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder"
+                app:layout_constraintStart_toStartOf="@+id/MainOverviewFragment_GraphPlaceholder" />
+
+            <ImageView
+                android:id="@+id/MainOverviewFragment_SettingsPlaceholder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@android:drawable/ic_menu_preferences"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/MainOverviewFragment_GraphZoomImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_zoom"
+                app:layout_constraintBottom_toBottomOf="@+id/MainOverviewFragment_GraphPlaceholder"
+                app:layout_constraintEnd_toEndOf="@+id/MainOverviewFragment_GraphPlaceholder" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/MainOverviewFragment_FloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@string/add_expense_button"
+                app:srcCompat="@drawable/outline_add_black_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>
