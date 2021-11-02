@@ -1,130 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<!-- Layout for AppBar and FABs -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.AddExpenseFragment">
-
-    <TextView
-        android:id="@+id/AddExpenseFragment_DescriptionTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/description"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectDateView" />
-
-    <Button
-        android:id="@+id/AddExpenseFragment_NewCategoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/new_category"
-        app:layout_constraintBottom_toBottomOf="@+id/AddExpenseFragment_SelectCategorySpinner"
-        app:layout_constraintStart_toEndOf="@+id/AddExpenseFragment_SelectCategorySpinner"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_CategoryTitleTextView"
-        app:layout_constraintVertical_bias="0.75" />
-
-    <TextView
-        android:id="@+id/AddExpenseFragment_CategoryTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/expense_category"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_DescriptionInputTextView" />
-
-    <Spinner
-        android:id="@+id/AddExpenseFragment_SelectCategorySpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_CategoryTitleTextView" />
-
-    <EditText
-        android:id="@+id/AddExpenseFragment_DescriptionInputTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textShortMessage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_DescriptionTitleTextView" />
+    android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/AddExpenseFragment_SelectDateTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/date"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_FragmentTitleTextView" />
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/AddExpenseFragment_SelectDateView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/temp_datepicker_background"
-        android:ems="10"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectDateTitleTextView" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
 
-    <TextView
-        android:id="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/sum"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectCategorySpinner" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <EditText
-        android:id="@+id/AddExpenseFragment_ExpenseSumEditSumTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
-        app:layout_constraintStart_toStartOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
-        app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView" />
 
-    <TextView
-        android:id="@+id/AddExpenseFragment_FragmentTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/add_expense"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Main content layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <Button
-        android:id="@+id/AddExpenseFragment_AddExpenseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="@string/add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.AddExpenseFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/AddExpenseFragment_DescriptionTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/description"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectDateView" />
+
+        <Button
+            android:id="@+id/AddExpenseFragment_NewCategoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/new_category"
+            app:layout_constraintBottom_toBottomOf="@+id/AddExpenseFragment_SelectCategorySpinner"
+            app:layout_constraintStart_toEndOf="@+id/AddExpenseFragment_SelectCategorySpinner"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_CategoryTitleTextView"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/AddExpenseFragment_CategoryTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/expense_category"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_DescriptionInputTextView" />
+
+        <Spinner
+            android:id="@+id/AddExpenseFragment_SelectCategorySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_CategoryTitleTextView" />
+
+        <EditText
+            android:id="@+id/AddExpenseFragment_DescriptionInputTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textShortMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_DescriptionTitleTextView" />
+
+        <TextView
+            android:id="@+id/AddExpenseFragment_SelectDateTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/date"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_FragmentTitleTextView" />
+
+        <TextView
+            android:id="@+id/AddExpenseFragment_SelectDateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/temp_datepicker_background"
+            android:ems="10"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectDateTitleTextView" />
+
+        <TextView
+            android:id="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/sum"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_SelectCategorySpinner" />
+
+        <EditText
+            android:id="@+id/AddExpenseFragment_ExpenseSumEditSumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
+            app:layout_constraintStart_toStartOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/AddExpenseFragment_ExpenseSumTitleTextView" />
+
+        <TextView
+            android:id="@+id/AddExpenseFragment_FragmentTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/add_expense"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/AddExpenseFragment_AddExpenseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
