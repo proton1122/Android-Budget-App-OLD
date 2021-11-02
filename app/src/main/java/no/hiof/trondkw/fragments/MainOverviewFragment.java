@@ -71,7 +71,7 @@ public class MainOverviewFragment extends Fragment {
         //binding.setCurrentMonth(currentMonth);
 
 
-
+        // wrong? which object to observe and where?
         binding.getMonthViewModel().getCurrentMonth().observe(getViewLifecycleOwner(), month -> {
 
         });
