@@ -2,16 +2,15 @@
 
 <!-- Data Binding layout -->
 <layout
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="monthViewModel"
             type="no.hiof.trondkw.viewmodels.MonthViewModel" />
     </data>
-
 
     <!-- Layout for AppBar and FABs -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout

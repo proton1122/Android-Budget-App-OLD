@@ -19,7 +19,7 @@ public class Expense {
     //private ExpenseCategory category;
     private String expenseCategory;
     //private Date date;
-    private int sum;
+    private double sum;
 
 
     // -------------------------------------------------------------------
@@ -27,7 +27,7 @@ public class Expense {
     public Expense() {
     }
 
-    public Expense(String title, int sum) {
+    public Expense(String title, double sum) {
         this.expenseTitle = title;
         this.sum = sum;
     }
@@ -44,7 +44,7 @@ public class Expense {
         return expenseTitle;
     }
 
-    public int getSum() {
+    public double getSum() {
         return sum;
     }
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -22,9 +23,12 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
     private LayoutInflater inflater;
 
 
+    public ExpenseRecyclerAdapter() {
+
+    }
+
     public ExpenseRecyclerAdapter(Context context, List<Expense> expenseList) {
         inflater = LayoutInflater.from(context);
-
         this.expenseList = expenseList;
     }
 
@@ -33,22 +37,38 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
     @Override
     public ExpenseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int position) {
 
-        View itemView = inflater.inflate(R.layout.expense_list_item, parent, false);
+
+        // from youtube example
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.expense_list_item, parent, false);
+
+        // old from school example
+        //View itemView = inflater.inflate(R.layout.expense_list_item, parent, false);
 
         return new ExpenseViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExpenseViewHolder holder, int position) {
-
         Expense expenseToDisplay = expenseList.get(position);
 
-        holder.setExpense(expenseToDisplay);
+        // from youtube example
+        holder.expenseTitleTextView.setText(expenseToDisplay.getExpenseTitle());
+        holder.expenseSumTextView.setText(String.valueOf(expenseToDisplay.getSum()));
+
+        // old from school example
+        //holder.setExpense(expenseToDisplay);
     }
 
     @Override
     public int getItemCount() {
         return expenseList.size();
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenseList = expenses;
+
+        // will be changed later
+        notifyDataSetChanged();
     }
 
 

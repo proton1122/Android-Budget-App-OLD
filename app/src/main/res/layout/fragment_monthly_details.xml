@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Layout for AppBar and FABs -->
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<!-- Data Binding layout -->
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="fragments.MonthlyDetailsFragment" >
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="monthViewModel"
+            type="no.hiof.trondkw.viewmodels.MonthViewModel" />
+    </data>
 
-    <!-- AppBar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <!-- Main content layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/MonthlyDetailsFragment_RecyclerView"
+    <!-- Layout for AppBar and FABs -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="?actionBarSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context="fragments.MonthlyDetailsFragment" >
 
-    <!-- Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/monthlyDetailsFragment_FloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="?actionBarSize"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/add_expense_button"
-        app:srcCompat="@drawable/outline_add_black_24" />
+        <!-- AppBar -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
 
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <!-- Main content layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MonthlyDetailsFragment_RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="?actionBarSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/expense_list_item"/>
+
+        <!-- // stuff for RecyclerView and Data binding?
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:listData="@{monthViewModel.currentMonth.monthlyExpenses}"
+            tools:listitem="@layout/expense_list_item"
+         -->
+
+        <!-- Floating Action Button -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/monthlyDetailsFragment_FloatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="?actionBarSize"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/add_expense_button"
+            app:srcCompat="@drawable/outline_add_black_24" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

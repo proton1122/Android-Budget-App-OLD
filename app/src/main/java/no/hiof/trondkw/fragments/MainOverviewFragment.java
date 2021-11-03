@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,19 +31,13 @@ import no.hiof.trondkw.viewmodels.MonthViewModel;
 public class MainOverviewFragment extends Fragment {
 
     // fields
-
-    //private LiveData<Month> currentMonth;
-    private Month currentMonth;
-
     private FragmentMainOverviewBinding binding;
     private MonthViewModel monthViewModel;
+    private LiveData<Month> currentMonth;
 
 
-
-    // constructor
     public MainOverviewFragment() {
         // Required empty public constructor
-        //loadData();
     }
 
 
@@ -50,18 +45,9 @@ public class MainOverviewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         // get the view model
         monthViewModel = new ViewModelProvider(this).get(MonthViewModel.class);
-
-        /*
-        // observe the viewModel
-        monthViewModel.getCurrentMonth().observe(this, month -> {
-
-            // update UI
-        });
-         */
-
+        currentMonth = monthViewModel.getCurrentMonth();
     }
 
     @Override
@@ -70,21 +56,6 @@ public class MainOverviewFragment extends Fragment {
 
         // bind data (to be changed)
         binding.setMonthViewModel(monthViewModel);
-
-        //binding.setCurrentMonth(currentMonth);
-
-
-        // wrong? which object to observe and where?
-        /*
-        binding.getMonthViewModel().getCurrentMonth().observe(getViewLifecycleOwner(), month -> {
-
-        });
-        */
-
-
-        // bind data with ViewModel
-        // not working, returns MutableLiveData (is this correct though?)
-        //binding.setCurrentMonth(monthViewModel.getCurrentMonth());
 
         return binding.getRoot();
     }
@@ -100,32 +71,31 @@ public class MainOverviewFragment extends Fragment {
         // show data
 
 
+
+        currentMonth.observe(getViewLifecycleOwner(), month -> {
+            System.out.println("Hello from currentMonth.observe");
+
+            ArrayList<Expense> expenseArraylist = new ArrayList<>();
+            expenseArraylist.add(new Expense("test expense", 5000));
+
+
+            currentMonth.getValue().setExpenses(500000);
+            currentMonth.getValue().setMonthlyExpenses(expenseArraylist);
+        });
+
         /*
         monthViewModel.getCurrentMonth().observe(getViewLifecycleOwner(), month -> {
+            System.out.println("hello from observe");
             binding.MainOverviewFragmentRemainingInputTextView.setText("5000");
         });
-         */
+        */
 
 
 
 
 
 
-        binding.getMonthViewModel().getCurrentMonth().observe(getViewLifecycleOwner(), month -> {
-            binding.MainOverviewFragmentBudgetInputTextView.setText(String.valueOf(monthViewModel.getCurrentMonth().getValue().getBudget()));
-            double exp = calcExpenses(monthViewModel.getCurrentMonth().getValue().getMonthlyExpenses());
-            System.out.println("Observer: " + exp);
-            binding.MainOverviewFragmentExpensesInputTextView.setText(String.valueOf(calcExpenses(monthViewModel.getCurrentMonth().getValue().getMonthlyExpenses())));
-            binding.MainOverviewFragmentRemainingInputTextView.setText("5000");
-        });
 
-
-        //binding.MainOverviewFragmentBudgetInputTextView.setText(String.valueOf(currentMonth.getValue().getBudget()));
-
-        /*
-        loadData();
-        showData(view);
-         */
     }
 
 
@@ -134,12 +104,12 @@ public class MainOverviewFragment extends Fragment {
         // firebase?
 
         // temp get dummy data
-        currentMonth = MonthRepository.getTestMonth();
+        //currentMonth = MonthRepository.getTestMonth();
         //currentMonth = monthViewModel.getCurrentMonth();
 
     }
 
-
+/*
     private void showData(View view) {
         // graph...
 
@@ -165,6 +135,7 @@ public class MainOverviewFragment extends Fragment {
         double remaining = currentMonth.getBudget() - totalExpenses;
         monthlyRemainingTextView.setText(String.valueOf(remaining));
     }
+    */
 
     private double calcExpenses(ArrayList<Expense> expenses) {
         double totalExpenses = 0;
